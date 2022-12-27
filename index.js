@@ -7,6 +7,8 @@ const helmet = require("helmet");
 const morgan = require("morgan");
 const dotenv = require("dotenv");
 const postRoute = require("./routes/post");
+const authRoute = require("./routes/auth");
+const userRoute = require("./routes/user");
 
 dotenv.config();
 //CONNECT DATABASE
@@ -22,6 +24,8 @@ app.use(morgan("common"));
 
 //ROUTES
 app.use("/v1/post", postRoute);
+app.use("/v1/auth", authRoute);
+app.use("/v1/user", userRoute);
 
 app.listen(process.env.PORT || 8000, () => {
   console.log("Server is running...");

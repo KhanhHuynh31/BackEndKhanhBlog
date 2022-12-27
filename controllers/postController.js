@@ -1,4 +1,4 @@
-const { Post, User } = require("../model/model");
+const { Post } = require("../models/model");
 
 const postController = {
   //ADD POST

@@ -9,6 +9,7 @@ const dotenv = require("dotenv");
 const postRoute = require("./routes/post");
 const authRoute = require("./routes/auth");
 const userRoute = require("./routes/user");
+var cookieParser = require('cookie-parser')
 
 dotenv.config();
 //CONNECT DATABASE
@@ -18,6 +19,7 @@ mongoose.connect((process.env.MONGODB_URL), () => {
 });
 
 app.use(bodyParser.json({ limit: "50mb" }));
+app.use(cookieParser());
 app.use(helmet());
 app.use(cors());
 app.use(morgan("common"));

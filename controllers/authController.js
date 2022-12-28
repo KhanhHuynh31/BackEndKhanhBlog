@@ -20,9 +20,9 @@ const authController = {
 
             //Save user to DB
             const user = await newUser.save();
-            res.status(200).json(user);
+            return res.status(200).json(user);
         } catch (err) {
-            res.status(500).json(err);
+            return res.status(500).json(err);
         }
     },
     generateAccessToken: (user) => {
@@ -109,7 +109,7 @@ const authController = {
         //Clear cookies when user logs out
         refreshTokens = refreshTokens.filter((token) => token !== req.body.token);
         res.clearCookie("refreshToken");
-        res.status(200).json("Logged out successfully!");
+        return res.status(200).json("Logged out successfully!");
     },
 };
 

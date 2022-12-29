@@ -59,7 +59,7 @@ const userSchema = new mongoose.Schema(
       min: 6,
       required: true,
     },
-    admin: {
+    isAdmin: {
       type: Boolean,
       default: false,
     }
